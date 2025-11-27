@@ -17,8 +17,8 @@ def cleanup_directory():
     keep_files = {
         'CRM_report_integrator_with_bank_statements.py',
         'bank_statement_retriever_and_organizer.py',
-        'SI_DEPREC_playwright.py',
-        'GWID_SI.xls',
+        'MM_DEPREC_playwright.py',
+        'GWID_MM.xls',
         'chat_logger.py',
         'SI_requirements.txt'
     }
@@ -110,8 +110,8 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
         # Clean filename: remove special characters, lowercase
         cleaned_name = re.sub(r'[^a-zA-Z0-9]', '', file_name).lower()
 
-        # Check if it's a bank statement (bofa or chase)
-        is_bank_statement = 'bofa' in cleaned_name or 'chase' in cleaned_name
+        # Check if it's a bank statement (bofa, boa, or chase)
+        is_bank_statement = 'bofa' in cleaned_name or 'boa' in cleaned_name or 'chase' in cleaned_name
 
         if is_bank_statement:
             print("✅ Bank Statement verified")
@@ -250,7 +250,7 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
 
             batch_state['task'] = asyncio.create_task(send_batch_message())
         else:
-            print(f"⚠️ File '{file_name}' is not a bank statement (no 'bofa' or 'chase' in name)")
+            print(f"⚠️ File '{file_name}' is not a bank statement (no 'bofa', 'boa', or 'chase' in name)")
 
     except Exception as e:
         import traceback
@@ -321,12 +321,12 @@ def run_bank_statement_sync():
 def run_playwright_sync():
     """Run Playwright script as subprocess with real-time output"""
     logger.info("="*80)
-    logger.info("STARTING: SI_DEPREC_playwright.py")
+    logger.info("STARTING: MM_DEPREC_playwright.py")
     logger.info("="*80)
 
     try:
         process = subprocess.Popen(
-            [sys.executable, "SI_DEPREC_playwright.py"],
+            [sys.executable, "MM_DEPREC_playwright.py"],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -353,9 +353,9 @@ def run_playwright_sync():
         returncode = process.returncode
 
         if returncode == 0:
-            logger.info("✓ COMPLETED: SI_DEPREC_playwright.py")
+            logger.info("✓ COMPLETED: MM_DEPREC_playwright.py")
         else:
-            logger.error(f"✗ ERROR in SI_DEPREC_playwright.py")
+            logger.error(f"✗ ERROR in MM_DEPREC_playwright.py")
             logger.error(f"Return code: {returncode}")
             logger.error("="*80)
             logger.error("LAST OUTPUT LINES (for debugging):")
@@ -368,7 +368,7 @@ def run_playwright_sync():
 
     except Exception as e:
         import traceback
-        logger.error(f"✗ EXCEPTION in SI_DEPREC_playwright.py: {e}")
+        logger.error(f"✗ EXCEPTION in MM_DEPREC_playwright.py: {e}")
         logger.error(traceback.format_exc())
         return -1
 
@@ -618,7 +618,7 @@ async def run_agent_pipeline_with_progress(playwright_done: asyncio.Event):
 
 def main():
     # Use same token retrieval pattern as bot_nef_serv.py
-    BOT_TOKEN = os.getenv("BOT_TOKEN", "8233132697:AAEWserzQqJ3_ULBO7lgD5Ule8OGu2CRUIg")
+    BOT_TOKEN = os.getenv("BOT_TOKEN", "8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k")
     if not BOT_TOKEN or BOT_TOKEN == "your_token_here":
         print("⚠️ Warning: Using hardcoded bot token. Set BOT_TOKEN environment variable for security.")
     

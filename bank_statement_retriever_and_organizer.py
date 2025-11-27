@@ -1269,7 +1269,7 @@ def process_multi_bank(
         # Route to appropriate extraction function
         if "chase" in bank_lower:
             extracted = extract_mid_chase(group_df, description_col=description_col)
-        elif "bofa" in bank_lower or "bank of america" in bank_lower:
+        elif "bofa" in bank_lower or "bank of america" in bank_lower or "boa" in bank_lower:
             extracted = extract_mid_bofa(group_df, description_col=description_col)
         else:
             print(f"⚠️  Unknown bank format: {bank_name}, defaulting to CHASE pattern")

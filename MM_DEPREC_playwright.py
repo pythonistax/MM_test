@@ -10,6 +10,8 @@ import time
 import logging
 import platform
 import asyncio
+import pickle
+from pathlib import Path
 from playwright.async_api import async_playwright
 
 # Fix for Windows Playwright issue (if using Playwright)
@@ -51,6 +53,51 @@ BROWSER_ARGS = [
 
 IS_SERVER = platform.system() == "Linux"
 
+def load_date_range_from_metadata(date_metadata_path: str = None) -> str:
+    """
+    Load date range from bank statement metadata and format it for Vrio.
+    
+    Args:
+        date_metadata_path: Path to the date metadata pickle file. 
+                           Defaults to 'deprec_date_metadata.pkl' in current directory.
+    
+    Returns:
+        str: Date range in format "mm/dd/yyyy - mm/dd/yyyy"
+    
+    Raises:
+        FileNotFoundError: If date metadata file doesn't exist
+        ValueError: If date metadata is invalid
+    """
+    if date_metadata_path is None:
+        date_metadata_path = Path.cwd() / 'deprec_date_metadata.pkl'
+    else:
+        date_metadata_path = Path(date_metadata_path)
+    
+    if not date_metadata_path.exists():
+        raise FileNotFoundError(
+            f"Date metadata file not found: {date_metadata_path}\n"
+            f"Please run bank_statement_retriever_and_organizer.py first to generate the date range."
+        )
+    
+    try:
+        with open(date_metadata_path, 'rb') as f:
+            date_metadata = pickle.load(f)
+        
+        min_date = date_metadata.get('min_date')
+        max_date = date_metadata.get('max_date')
+        
+        if min_date is None or max_date is None:
+            raise ValueError("Date metadata missing min_date or max_date")
+        
+        # Format as mm/dd/yyyy - mm/dd/yyyy
+        date_range = f"{min_date.strftime('%m/%d/%Y')} - {max_date.strftime('%m/%d/%Y')}"
+        
+        logger.info(f"Loaded date range from metadata: {date_range}")
+        return date_range
+        
+    except Exception as e:
+        raise ValueError(f"Error loading date metadata: {e}")
+
 if IS_SERVER:
     # Set virtual display for Playwright headless=False
     os.environ['DISPLAY'] = ':99'
@@ -71,9 +118,13 @@ else:
     print("🖥️ Running on local machine")
 
 
-async def Playwright_Vrio_GF_Project_3_async(playwright):
+async def Playwright_Vrio_GF_Project_3_async(playwright, date_range: str):
     """
     Simple Vrio file retriever - logs in, navigates to DEPREC report, inserts date range, then exports.
+    
+    Args:
+        playwright: Playwright instance
+        date_range: Date range in format "mm/dd/yyyy - mm/dd/yyyy" (e.g., "11/01/2025 - 11/21/2025")
     """
     import os
     import time
@@ -113,7 +164,7 @@ async def Playwright_Vrio_GF_Project_3_async(playwright):
                     await page.get_by_placeholder("password").click(timeout=10000)
                     await page.get_by_placeholder("password").fill("F&OqbOP3iSx;")
                     await page.get_by_role("button", name="Login").click(timeout=10000)
-                    await page.wait_for_load_state("networkidle", timeout=20000)
+                    await page.wait_for_load_state("networkidle", timeout=20000) # addd
                     login_success = True
                     break
                 except Exception as e:
@@ -146,7 +197,7 @@ async def Playwright_Vrio_GF_Project_3_async(playwright):
             await page.wait_for_load_state("networkidle", timeout=20000)
 
             # Insert date range
-            logger.info("Inserting date range...")
+            logger.info(f"Inserting date range: {date_range}...")
             date_range_field = page.locator("#rb_date_range")
             await date_range_field.wait_for(state="visible", timeout=10000)
             await date_range_field.click()
@@ -156,7 +207,7 @@ async def Playwright_Vrio_GF_Project_3_async(playwright):
             await page.keyboard.press("Delete")
             await page.wait_for_timeout(300)
             # Type the date range as if a human is typing (character by character)
-            await date_range_field.type("11/01/2025 - 11/21/2025", delay=100)
+            await date_range_field.type(date_range, delay=100)
             await page.wait_for_timeout(500)
             await date_range_field.press("Enter")
             logger.info("Date range entered, waiting for page to load...")
@@ -221,14 +272,33 @@ async def Playwright_Vrio_GF_Project_3_async(playwright):
                 raise
 
 
-async def main():
-    """Main function to run the Playwright automation"""
+async def main(date_range: str = None):
+    """
+    Main function to run the Playwright automation
+    
+    Args:
+        date_range: Date range in format "mm/dd/yyyy - mm/dd/yyyy" (e.g., "11/01/2025 - 11/21/2025").
+                   If None, will automatically load from bank statement metadata.
+    """
+    # Auto-load date range from metadata if not provided
+    if date_range is None:
+        try:
+            date_range = load_date_range_from_metadata()
+            print("📅 Date range automatically loaded from bank statement metadata")
+        except (FileNotFoundError, ValueError) as e:
+            print(f"❌ Error: {e}")
+            print("Please either:")
+            print("  1. Run bank_statement_retriever_and_organizer.py first, OR")
+            print("  2. Provide date_range parameter manually")
+            raise
+    
     print("🚀 Starting Vrio file retrieval...")
+    print(f"📅 Date range: {date_range}")
     print("=" * 50)
     
     try:
         async with async_playwright() as playwright:
-            await Playwright_Vrio_GF_Project_3_async(playwright)
+            await Playwright_Vrio_GF_Project_3_async(playwright, date_range)
         
         print("=" * 50)
         print("✅ Vrio file retrieval completed successfully!")
@@ -243,5 +313,11 @@ async def main():
 
 if __name__ == "__main__":
     # Run the script
+    # Date range will be automatically loaded from bank statement metadata
+    # If you want to override, uncomment and set manually:
+    # date_range = "11/01/2025 - 11/21/2025"  # Format: "mm/dd/yyyy - mm/dd/yyyy"
+    # asyncio.run(main(date_range))
+    
+    # Otherwise, it will auto-load from deprec_date_metadata.pkl
     asyncio.run(main())
 
