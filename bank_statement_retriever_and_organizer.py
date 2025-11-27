@@ -1125,65 +1125,39 @@ def single_pass_extract_mid_credit(
 
     return out
 
-result_df = single_pass_extract_mid_credit(central_df)
+# OLD METHOD - Commented out, using process_multi_bank instead
+# result_df = single_pass_extract_mid_credit(central_df)
 
-# Get the min max date of the result_df
-# We need to get the min max date of the result_df
-min_date = result_df["posting_date"].min()
-max_date = result_df["posting_date"].max()
-print(f"Min date: {min_date}, Max date: {max_date}")
-
-# Create date metadata dictionary
-date_metadata = {
-    'min_date': min_date,
-    'max_date': max_date,
-    'min_date_str': min_date.strftime('%Y/%m/%d'),  # e.g., "2025/07/30"
-    'max_date_str': max_date.strftime('%Y/%m/%d'),  # e.g., "2025/10/03"
-    'min_date_display': min_date.strftime('%b %d, %Y'),  # For display in reports
-    'max_date_display': max_date.strftime('%b %d, %Y')
-}
-data_dir = Path(__file__).parent if '__file__' in globals() else Path.cwd()
-data_dir = Path.cwd()  # 
-
-# Save date metadata
-with open(data_dir / 'deprec_date_metadata.pkl', 'wb') as f:
-    pickle.dump(date_metadata, f)
-print("✓ Saved: date_metadata (min/max dates from result_df)")
-print(f"  Date range: {date_metadata['min_date_display']} → {date_metadata['max_date_display']}")
-
-print("\n✓ All data saved successfully! CRM report integrator can now load this data.")
-print(f"✓ Data saved in: {data_dir}")
-print("="*80 + "\n")
-
+# OLD DEBUG CODE - Commented out, similar debug code exists after process_multi_bank
 # Debug: identify and categorize rows missing MID IDs
-missing_mid = result_df[result_df["midid"].isna() | (result_df["midid"].astype(str).str.strip() == "")]
-total_rows = len(result_df)
-num_missing = len(missing_mid)
-print(f"Total rows after extraction: {total_rows}")
-print(f"Rows missing MID: {num_missing} ({(num_missing/total_rows*100 if total_rows else 0):.2f}%)")
-
-# Heuristics on why it’s missing, based on cleaned description
-cd = result_df["clean_description"].fillna("").astype(str)
-has_indid = cd.str.contains("indid")
-has_end = cd.str.contains("indname") | cd.str.contains("origid")
-
-no_indid = missing_mid[~has_indid.loc[missing_mid.index]]
-indid_no_end = missing_mid[has_indid.loc[missing_mid.index] & ~has_end.loc[missing_mid.index]]
-bad_window = missing_mid.index.difference(no_indid.index).difference(indid_no_end.index)
-
-print(f"- Missing 'indid' token: {len(no_indid)}")
-print(f"- Has 'indid' but missing an end token ('indname'/'origid'): {len(indid_no_end)}")
-print(f"- Has tokens but window invalid/regex didn’t match: {len(bad_window)}")
-
-# Show samples for inspection
-print("\nSample: missing 'indid'")
-print(no_indid[["details","description"]].head(5))
-
-print("\nSample: has 'indid' but no end token")
-print(indid_no_end[["details","description"]].head(5))
-
-print("\nSample: invalid window / didn’t match")
-print(result_df.loc[bad_window, ["details","description"]].head(5))
+# missing_mid = result_df[result_df["midid"].isna() | (result_df["midid"].astype(str).str.strip() == "")]
+# total_rows = len(result_df)
+# num_missing = len(missing_mid)
+# print(f"Total rows after extraction: {total_rows}")
+# print(f"Rows missing MID: {num_missing} ({(num_missing/total_rows*100 if total_rows else 0):.2f}%)")
+# 
+# # Heuristics on why it's missing, based on cleaned description
+# cd = result_df["clean_description"].fillna("").astype(str)
+# has_indid = cd.str.contains("indid")
+# has_end = cd.str.contains("indname") | cd.str.contains("origid")
+# 
+# no_indid = missing_mid[~has_indid.loc[missing_mid.index]]
+# indid_no_end = missing_mid[has_indid.loc[missing_mid.index] & ~has_end.loc[missing_mid.index]]
+# bad_window = missing_mid.index.difference(no_indid.index).difference(indid_no_end.index)
+# 
+# print(f"- Missing 'indid' token: {len(no_indid)}")
+# print(f"- Has 'indid' but missing an end token ('indname'/'origid'): {len(indid_no_end)}")
+# print(f"- Has tokens but window invalid/regex didn't match: {len(bad_window)}")
+# 
+# # Show samples for inspection
+# print("\nSample: missing 'indid'")
+# print(no_indid[["details","description"]].head(5))
+# 
+# print("\nSample: has 'indid' but no end token")
+# print(indid_no_end[["details","description"]].head(5))
+# 
+# print("\nSample: invalid window / didn't match")
+# print(result_df.loc[bad_window, ["details","description"]].head(5))
 
 import pandas as pd
 
@@ -1468,9 +1442,43 @@ result_df = result_df[
 
 result_df["credit_charge"].unique()
 
+# Get the min max date of the result_df (after all processing is complete)
+# Subtract 3 days from both dates for the playwright/Vrio report date range
+min_date = result_df["posting_date"].min()
+max_date = result_df["posting_date"].max()
+print(f"Min date: {min_date}, Max date: {max_date}")
+
+# Subtract 3 days from both dates for Vrio report
+from datetime import timedelta
+min_date_vrio = min_date - timedelta(days=3)
+max_date_vrio = max_date - timedelta(days=3)
+print(f"Vrio date range (min -3 days, max -3 days): {min_date_vrio} → {max_date_vrio}")
+
+# Create date metadata dictionary (using original dates for display, Vrio dates for playwright)
+date_metadata = {
+    'min_date': min_date,
+    'max_date': max_date,
+    'min_date_vrio': min_date_vrio,  # For Vrio/Playwright (3 days earlier)
+    'max_date_vrio': max_date_vrio,  # For Vrio/Playwright (3 days earlier)
+    'min_date_str': min_date.strftime('%Y/%m/%d'),  # e.g., "2025/07/30"
+    'max_date_str': max_date.strftime('%Y/%m/%d'),  # e.g., "2025/10/03"
+    'min_date_display': min_date.strftime('%b %d, %Y'),  # For display in reports
+    'max_date_display': max_date.strftime('%b %d, %Y')
+}
+data_dir = Path(__file__).parent if '__file__' in globals() else Path.cwd()
+data_dir = Path.cwd()
+
+# Save date metadata (this will be picked up by playwright)
+with open(data_dir / 'deprec_date_metadata.pkl', 'wb') as f:
+    pickle.dump(date_metadata, f)
+print("✓ Saved: date_metadata (min/max dates from result_df)")
+print(f"  Date range: {date_metadata['min_date_display']} → {date_metadata['max_date_display']}")
+print(f"  Vrio date range: {min_date_vrio.strftime('%b %d, %Y')} → {max_date_vrio.strftime('%b %d, %Y')}")
+
 import os
 from typing import List, Dict, Optional
 import anthropic
+
 
 
 
@@ -1859,11 +1867,7 @@ try:
         pickle.dump(central_df, f)
     print("✓ Saved: central_df")
 
-    # Save date metadata
-    with open(data_dir / 'deprec_date_metadata.pkl', 'wb') as f:
-        pickle.dump(date_metadata, f)
-    print("✓ Saved: date_metadata (min/max dates from result_df)")
-    print(f"  Date range: {date_metadata['min_date_display']} → {date_metadata['max_date_display']}")
+    # Date metadata already saved earlier (after process_multi_bank completes)
 
     print("\n✓ All data saved successfully! CRM report integrator can now load this data.")
     print(f"✓ Data saved in: {data_dir}")

@@ -167,7 +167,7 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
                     batch_state['task'] = None
 
                     # Delete the retrieving message, then send new message after CRM report fetched
-                    retrieving_msg = await update.message.reply_text("Retrieving the matching CRM report from Sticky...")
+                    retrieving_msg = await update.message.reply_text("Retrieving the matching CRM report from Vrio...")
                     logger.info("Triggering agent pipeline after bank statements downloaded")
                     
                     # Create event to signal when Playwright completes
@@ -176,13 +176,13 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
                     # Create progress updater task
                     async def update_progress():
                         try:
-                            # Wait 1.5 seconds, then update to "logging in to Sticky 🔄"
+                            # Wait 1.5 seconds, then update to "logging in to Vrio 🔄"
                             await asyncio.sleep(1.5)
                             if playwright_done.is_set():
                                 # Playwright finished early, show filtering message
                                 await retrieving_msg.edit_text("Filtering for date range of matching deposits 🔄")
                                 return
-                            await retrieving_msg.edit_text("Logging into Sticky 🔄")
+                            await retrieving_msg.edit_text("Logging into Vrio 🔄")
                             
                             # Wait 1 second, then update to "Entering user and password details 🔄"
                             await asyncio.sleep(1.0)
@@ -198,7 +198,7 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
                                 # Playwright finished early, show filtering message
                                 await retrieving_msg.edit_text("Filtering for date range of matching deposits 🔄")
                                 return
-                            await retrieving_msg.edit_text("Opening sticky dashboard 🔄")
+                            await retrieving_msg.edit_text("Opening Vrio dashboard 🔄")
                             
                             # Wait 5 seconds, then update to "Fetching gateway report 🔄"
                             await asyncio.sleep(5.0)
@@ -237,7 +237,7 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
                         pass
 
                     if success:
-                        await retrieving_msg.edit_text("✅ Sticky report retrieved with success")
+                        await retrieving_msg.edit_text("✅ Vrio report retrieved with success")
                     else:
                         await retrieving_msg.edit_text("❌ Agent Pipeline failed. Check logs for details.")
 

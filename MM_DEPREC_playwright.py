@@ -4,8 +4,15 @@ Simple Vrio File Retriever
 Simple Vrio file retriever - logs in, navigates to DEPREC report, inserts date range, then exports.
 """
 
-import os
 import sys
+import io
+
+# Set UTF-8 encoding for Windows console (must be done BEFORE any print statements with emojis)
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
+import os
 import time
 import logging
 import platform
@@ -83,16 +90,17 @@ def load_date_range_from_metadata(date_metadata_path: str = None) -> str:
         with open(date_metadata_path, 'rb') as f:
             date_metadata = pickle.load(f)
         
-        min_date = date_metadata.get('min_date')
-        max_date = date_metadata.get('max_date')
+        # Use Vrio dates (with 3-day offset) if available, otherwise fall back to regular dates
+        min_date = date_metadata.get('min_date_vrio') or date_metadata.get('min_date')
+        max_date = date_metadata.get('max_date_vrio') or date_metadata.get('max_date')
         
         if min_date is None or max_date is None:
-            raise ValueError("Date metadata missing min_date or max_date")
+            raise ValueError("Date metadata missing min_date/min_date_vrio or max_date/max_date_vrio")
         
         # Format as mm/dd/yyyy - mm/dd/yyyy
         date_range = f"{min_date.strftime('%m/%d/%Y')} - {max_date.strftime('%m/%d/%Y')}"
         
-        logger.info(f"Loaded date range from metadata: {date_range}")
+        logger.info(f"Loaded date range from metadata (Vrio dates with -3 days offset): {date_range}")
         return date_range
         
     except Exception as e:
