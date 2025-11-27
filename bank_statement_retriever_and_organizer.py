@@ -95,6 +95,7 @@ def _remove_beginning_balance_rows(df: pd.DataFrame) -> pd.DataFrame:
 def _clean_numeric_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
     Clean numeric columns by removing $, %, and commas, then convert to numeric.
+    Excludes known text columns (Description, Details, Type) from numeric cleaning.
     
     Args:
         df: DataFrame to clean
@@ -104,7 +105,15 @@ def _clean_numeric_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
     df_cleaned = df.copy()
     
+    # List of columns that should NEVER be treated as numeric (text columns)
+    text_columns = ['description', 'details', 'type']
+    
     for col in df_cleaned.columns:
+        # Skip text columns - they should never be converted to numeric
+        col_lower = str(col).lower().strip()
+        if col_lower in text_columns:
+            continue
+        
         # Check if column is string/object type (might contain numeric data with formatting)
         if df_cleaned[col].dtype == 'object' or df_cleaned[col].dtype == 'string':
             # Try to detect if it looks numeric (contains $, %, or numbers with commas)
@@ -218,12 +227,15 @@ def bank_statements_retriever(directory: Optional[str] = None) -> Dict[str, pd.D
             df = _drop_fully_blank_and_unnamed(df)
             # Drop fully blank rows
             df = _drop_fully_blank_rows(df)
-            # Remove 'balance' column if it exists (Chase files sometimes have this)
-            cols_lower = [col.lower().strip() for col in df.columns]
-            if 'balance' in cols_lower:
-                balance_idx = cols_lower.index('balance')
-                df = df.drop(columns=[df.columns[balance_idx]])
-                print(f"  Removed 'balance' column from {file_name}")
+            # Remove columns that contain 'running' or 'balance' in their name (case-insensitive)
+            cols_to_drop = []
+            for col in df.columns:
+                col_lower = str(col).lower().strip()
+                if 'running' in col_lower or 'balance' in col_lower:
+                    cols_to_drop.append(col)
+            if cols_to_drop:
+                df = df.drop(columns=cols_to_drop)
+                print(f"  Removed column(s) containing 'running' or 'balance' from {file_name}: {cols_to_drop}")
 
             # If after dropping, the DataFrame is empty (no rows), skip adding
             if df.shape[0] == 0:
@@ -1442,6 +1454,28 @@ result_df = result_df[
 
 result_df["credit_charge"].unique()
 
+# Create DataFrame of transactions with no MID match (for export as "Non-matched MIDs" sheet)
+# This includes transactions where:
+# 1. No MID was extracted (midid is NaN/empty)
+# 2. MID was extracted but no GWID match found (matched_mid is empty or gwid is empty)
+non_matched_mids_df = result_df[
+    (result_df["midid"].isna() | (result_df["midid"].astype(str).str.strip() == "")) |
+    (result_df["matched_mid"].isna() | (result_df["matched_mid"].astype(str).str.strip() == "")) |
+    (result_df["gwid"].isna() | (result_df["gwid"].astype(str).str.strip() == ""))
+].copy()
+
+# Select relevant columns for export (exclude internal processing columns like clean_description)
+export_columns = [
+    "bank_name", "details", "posting_date", "description", "amount", "type",
+    "midid", "credit_charge", "matched_mid", "gwid", "processor", "corp", "match_score"
+]
+# Only include columns that exist in the DataFrame
+available_columns = [col for col in export_columns if col in non_matched_mids_df.columns]
+non_matched_mids_df = non_matched_mids_df[available_columns].copy()
+
+print(f"\n✓ Created Non-matched MIDs DataFrame: {len(non_matched_mids_df)} transactions")
+print(f"  Total amount: ${non_matched_mids_df['amount'].sum():,.2f}")
+
 # Get the min max date of the result_df (after all processing is complete)
 # Subtract 3 days from both dates for the playwright/Vrio report date range
 min_date = result_df["posting_date"].min()
@@ -1478,8 +1512,6 @@ print(f"  Vrio date range: {min_date_vrio.strftime('%b %d, %Y')} → {max_date_v
 import os
 from typing import List, Dict, Optional
 import anthropic
-
-
 
 
 def generate_credit_designation_descriptions(
@@ -1866,12 +1898,42 @@ try:
     with open(data_dir / 'deprec_central_df.pkl', 'wb') as f:
         pickle.dump(central_df, f)
     print("✓ Saved: central_df")
+    
+    with open(data_dir / 'deprec_non_matched_mids_df.pkl', 'wb') as f:
+        pickle.dump(non_matched_mids_df, f)
+    print("✓ Saved: non_matched_mids_df")
 
     # Date metadata already saved earlier (after process_multi_bank completes)
 
     print("\n✓ All data saved successfully! CRM report integrator can now load this data.")
     print(f"✓ Data saved in: {data_dir}")
     print("="*80 + "\n")
+    
+    # Export result_df and central_df to Excel for debugging
+    debug_excel_path = data_dir / 'DEBUGGING_C_R.xlsx'
+    print(f"\n{'='*80}")
+    print("EXPORTING DEBUG EXCEL FILE")
+    print("="*80)
+    try:
+        with pd.ExcelWriter(debug_excel_path, engine='xlsxwriter') as writer:
+            # Sheet 1: central_df
+            central_df.to_excel(writer, sheet_name='central_df', index=False)
+            ws1 = writer.sheets['central_df']
+            ws1.freeze_panes(1, 0)
+            
+            # Sheet 2: result_df
+            result_df.to_excel(writer, sheet_name='result_df', index=False)
+            ws2 = writer.sheets['result_df']
+            ws2.freeze_panes(1, 0)
+        
+        print(f"✓ Exported DEBUGGING_C_R.xlsx")
+        print(f"  - Sheet 'central_df': {len(central_df)} rows × {len(central_df.columns)} columns")
+        print(f"  - Sheet 'result_df': {len(result_df)} rows × {len(result_df.columns)} columns")
+        print(f"  - Location: {debug_excel_path}")
+        print("="*80 + "\n")
+    except Exception as e:
+        print(f"⚠️  Warning: Failed to export DEBUGGING_C_R.xlsx: {e}")
+        print("="*80 + "\n")
 
 except Exception as e:
     print(f"\n❌ ERROR: Failed to save data for CRM report integrator: {e}")

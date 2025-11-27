@@ -70,6 +70,15 @@ try:
         central_df = pickle.load(f)
     print("✓ Loaded: central_df")
     
+    # Load non-matched MIDs DataFrame (optional - may not exist in older runs)
+    try:
+        with open(data_dir / 'deprec_non_matched_mids_df.pkl', 'rb') as f:
+            non_matched_mids_df = pickle.load(f)
+        print("✓ Loaded: non_matched_mids_df")
+    except FileNotFoundError:
+        print("⚠ Non-matched MIDs file not found - creating empty DataFrame")
+        non_matched_mids_df = pd.DataFrame()
+    
     print("\n✓ All data loaded successfully!")
     print("="*80 + "\n")
     
@@ -667,6 +676,10 @@ detailed_message.append(f"   1. Reconciliation Summary (All {len(filtered_sales_
 detailed_message.append("   2. Gateway ID Breakdown (Transaction-level detail)")
 detailed_message.append("   3. Processor Aggregation (Performance metrics)")
 detailed_message.append("   4. Corp Breakdown")
+# Add Non-Matched MIDs sheet if it exists and is not empty
+if not non_matched_mids_df.empty and 'amount' in non_matched_mids_df.columns:
+    non_matched_total = pd.to_numeric(non_matched_mids_df['amount'], errors='coerce').sum()
+    detailed_message.append(f"   5. Non-Matched MIDs (Total: ${non_matched_total:,.2f})")
 detailed_message.append("")
 
 # Print the detailed_message list as a block of text with newlines (not as a Python list)
@@ -815,6 +828,32 @@ with pd.ExcelWriter(file_path, engine="xlsxwriter") as writer:
         else:
             ws5.set_column(i, i, width)
     ws5.freeze_panes(1, 0)
+
+    # Sheet 6: Non-matched MIDs (transactions without MID matches)
+    if not non_matched_mids_df.empty:
+        non_matched_mids_df.to_excel(writer, sheet_name="Non-matched MIDs", index=False)
+        ws6 = writer.sheets["Non-matched MIDs"]
+        ws6.set_row(0, None, header_format)
+        for i, col in enumerate(non_matched_mids_df.columns):
+            col_series = non_matched_mids_df.iloc[:, i]
+            max_len = max(col_series.astype(str).map(len).max(), len(str(col)))
+            width = min(max_len + 2, 60)
+            # Apply currency format for amount column
+            if col.lower() in ['amount', 'match_score'] and pd.api.types.is_numeric_dtype(col_series):
+                if col.lower() == 'amount':
+                    ws6.set_column(i, i, width, usd_format)
+                else:
+                    ws6.set_column(i, i, width)
+            else:
+                ws6.set_column(i, i, width)
+        ws6.freeze_panes(1, 0)
+    else:
+        # Create empty sheet with header message if no non-matched MIDs
+        empty_df = pd.DataFrame({"Message": ["No non-matched MID transactions found."]})
+        empty_df.to_excel(writer, sheet_name="Non-matched MIDs", index=False)
+        ws6 = writer.sheets["Non-matched MIDs"]
+        ws6.set_row(0, None, header_format)
+        ws6.set_column(0, 0, 50)
 
 print(f"✅ Exported to: {file_path}")
 

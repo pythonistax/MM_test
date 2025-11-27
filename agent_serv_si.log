@@ -1163,3 +1163,1169 @@ telegram.error.TimedOut: Timed out
 2025-11-27 16:14:01,711 - INFO - Scheduler started
 2025-11-27 16:14:01,712 - INFO - Application started
 2025-11-27 16:14:11,851 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:28:41,771 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getMe "HTTP/1.1 200 OK"
+2025-11-27 17:28:41,825 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/deleteWebhook "HTTP/1.1 200 OK"
+2025-11-27 17:28:41,827 - INFO - Scheduler started
+2025-11-27 17:28:41,827 - INFO - Application started
+2025-11-27 17:28:46,010 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 409 Conflict"
+2025-11-27 17:28:46,012 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:28:46,012 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:28:51,632 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 409 Conflict"
+2025-11-27 17:28:51,632 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:28:51,632 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:28:53,582 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:28:53,942 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:28:54,032 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_50.xls "HTTP/1.1 200 OK"
+2025-11-27 17:28:54,272 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:28:54,320 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_51.xls "HTTP/1.1 200 OK"
+2025-11-27 17:28:54,428 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:28:54,475 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_52.xls "HTTP/1.1 200 OK"
+2025-11-27 17:28:54,680 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:28:54,833 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_53.xls "HTTP/1.1 200 OK"
+2025-11-27 17:28:57,191 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:28:57,276 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:28:57,278 - INFO - Triggering agent pipeline after bank statements downloaded
+2025-11-27 17:28:57,278 - INFO - 
+================================================================================
+2025-11-27 17:28:57,279 - INFO - SMARTIMPACT DEPREC AGENT SERVICE
+2025-11-27 17:28:57,279 - INFO - Started: 2025-11-27 17:28:57
+2025-11-27 17:28:57,280 - INFO - ================================================================================
+
+2025-11-27 17:28:57,280 - INFO - 
+================================================================================
+2025-11-27 17:28:57,281 - INFO - PHASE 1: PARALLEL EXECUTION
+2025-11-27 17:28:57,281 - INFO - ================================================================================
+2025-11-27 17:28:57,282 - INFO - Waiting for deprec_date_metadata.pkl to appear...
+2025-11-27 17:28:57,282 - INFO - ================================================================================
+2025-11-27 17:28:57,282 - INFO - ✓ Found deprec_date_metadata.pkl after 0.0s
+2025-11-27 17:28:57,282 - INFO - STARTING: bank_statement_retriever_and_organizer.py
+2025-11-27 17:28:57,283 - INFO - ================================================================================
+2025-11-27 17:28:57,283 - INFO - ================================================================================
+2025-11-27 17:28:57,283 - INFO - STARTING: MM_DEPREC_playwright.py
+2025-11-27 17:28:57,284 - INFO - ================================================================================
+2025-11-27 17:28:58,462 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 409 Conflict"
+2025-11-27 17:28:58,463 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:28:58,463 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:28:58,871 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:28:59,959 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:29:00,909 - INFO - ✓ COMPLETED: bank_statement_retriever_and_organizer.py
+2025-11-27 17:29:02,037 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:29:02,918 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 409 Conflict"
+2025-11-27 17:29:02,919 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:29:02,919 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:29:07,238 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:29:12,440 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:29:12,659 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 409 Conflict"
+2025-11-27 17:29:12,660 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:29:12,660 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-11-27 17:29:13,024 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:29:13,026 - INFO - Application is stopping. This might take a moment.
+2025-11-27 17:29:13,026 - INFO - Scheduler has been shut down
+2025-11-27 17:29:13,027 - INFO - Application.stop() complete
+2025-11-27 17:29:13,219 - ERROR - ✗ ERROR in MM_DEPREC_playwright.py
+2025-11-27 17:29:13,220 - ERROR - Return code: 3221225786
+2025-11-27 17:29:13,220 - ERROR - ================================================================================
+2025-11-27 17:29:13,220 - ERROR - LAST OUTPUT LINES (for debugging):
+2025-11-27 17:29:13,220 - ERROR - ================================================================================
+2025-11-27 17:29:13,220 - ERROR - 
+2025-11-27 17:29:13,220 - ERROR - During handling of the above exception, another exception occurred:
+2025-11-27 17:29:13,220 - ERROR - 
+2025-11-27 17:29:13,221 - ERROR - Traceback (most recent call last):
+2025-11-27 17:29:13,221 - ERROR -   File "C:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\MM_DEPREC_playwright.py", line 330, in <module>
+2025-11-27 17:29:13,221 - ERROR -     asyncio.run(main())
+2025-11-27 17:29:13,221 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+2025-11-27 17:29:13,221 - ERROR -     return runner.run(main)
+2025-11-27 17:29:13,221 - ERROR -            ^^^^^^^^^^^^^^^^
+2025-11-27 17:29:13,222 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 123, in run
+2025-11-27 17:29:13,222 - ERROR -     raise KeyboardInterrupt()
+2025-11-27 17:29:13,222 - ERROR - KeyboardInterrupt
+2025-11-27 17:29:13,222 - ERROR - Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x0000023A50FBCD60>
+2025-11-27 17:29:13,222 - ERROR - Traceback (most recent call last):
+2025-11-27 17:29:13,223 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_subprocess.py", line 126, in __del__
+2025-11-27 17:29:13,223 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_subprocess.py", line 104, in close
+2025-11-27 17:29:13,223 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 109, in close
+2025-11-27 17:29:13,223 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 799, in call_soon
+2025-11-27 17:29:13,223 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 545, in _check_closed
+2025-11-27 17:29:13,223 - ERROR - RuntimeError: Event loop is closed
+2025-11-27 17:29:13,223 - ERROR - ================================================================================
+2025-11-27 17:29:13,265 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15' coro=<handle_document_logger.<locals>.send_batch_message() done, defined at c:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\chat_logger.py:158> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]>>
+2025-11-27 17:29:13,265 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-16' coro=<handle_document_logger.<locals>.send_batch_message.<locals>.update_progress() done, defined at c:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\chat_logger.py:177> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-11-27 17:32:01,150 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getMe "HTTP/1.1 200 OK"
+2025-11-27 17:32:01,197 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/deleteWebhook "HTTP/1.1 200 OK"
+2025-11-27 17:32:01,199 - INFO - Scheduler started
+2025-11-27 17:32:01,199 - INFO - Application started
+2025-11-27 17:32:09,080 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:32:09,446 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:32:09,517 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_54.xls "HTTP/1.1 200 OK"
+2025-11-27 17:32:09,766 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:32:09,819 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_55.xls "HTTP/1.1 200 OK"
+2025-11-27 17:32:09,904 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:32:09,959 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_56.xls "HTTP/1.1 200 OK"
+2025-11-27 17:32:10,142 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:32:10,195 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_57.xls "HTTP/1.1 200 OK"
+2025-11-27 17:32:12,321 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:32:12,512 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:32:12,513 - INFO - Triggering agent pipeline after bank statements downloaded
+2025-11-27 17:32:12,514 - INFO - 
+================================================================================
+2025-11-27 17:32:12,514 - INFO - SMARTIMPACT DEPREC AGENT SERVICE
+2025-11-27 17:32:12,514 - INFO - Started: 2025-11-27 17:32:12
+2025-11-27 17:32:12,514 - INFO - ================================================================================
+
+2025-11-27 17:32:12,514 - INFO - 
+================================================================================
+2025-11-27 17:32:12,514 - INFO - PHASE 1: PARALLEL EXECUTION
+2025-11-27 17:32:12,515 - INFO - ================================================================================
+2025-11-27 17:32:12,515 - INFO - Waiting for deprec_date_metadata.pkl to appear...
+2025-11-27 17:32:12,515 - INFO - ================================================================================
+2025-11-27 17:32:12,516 - INFO - ✓ Found deprec_date_metadata.pkl after 0.0s
+2025-11-27 17:32:12,516 - INFO - STARTING: bank_statement_retriever_and_organizer.py
+2025-11-27 17:32:12,516 - INFO - ================================================================================
+2025-11-27 17:32:12,517 - INFO - ================================================================================
+2025-11-27 17:32:12,517 - INFO - STARTING: MM_DEPREC_playwright.py
+2025-11-27 17:32:12,518 - INFO - ================================================================================
+2025-11-27 17:32:14,111 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:32:15,212 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:32:16,489 - INFO - ✓ COMPLETED: bank_statement_retriever_and_organizer.py
+2025-11-27 17:32:17,296 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:32:19,131 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:32:22,507 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:32:23,844 - ERROR - ✗ ERROR in MM_DEPREC_playwright.py
+2025-11-27 17:32:23,844 - ERROR - Return code: 1
+2025-11-27 17:32:23,844 - ERROR - ================================================================================
+2025-11-27 17:32:23,844 - ERROR - LAST OUTPUT LINES (for debugging):
+2025-11-27 17:32:23,844 - ERROR - ================================================================================
+2025-11-27 17:32:23,844 - ERROR -     Browser, from_channel(await self._channel.send("launch", params))
+2025-11-27 17:32:23,844 - ERROR -                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:32:23,844 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_connection.py", line 63, in send
+2025-11-27 17:32:23,846 - ERROR -     return await self._connection.wrap_api_call(
+2025-11-27 17:32:23,846 - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:32:23,846 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_connection.py", line 495, in wrap_api_call
+2025-11-27 17:32:23,846 - ERROR -     return await cb()
+2025-11-27 17:32:23,846 - ERROR -            ^^^^^^^^^^
+2025-11-27 17:32:23,846 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_connection.py", line 101, in inner_send
+2025-11-27 17:32:23,846 - ERROR -     result = next(iter(done)).result()
+2025-11-27 17:32:23,847 - ERROR -              ^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:32:23,847 - ERROR - playwright._impl._errors.Error: Executable doesn't exist at C:\Users\mmsou\AppData\Local\ms-playwright\chromium-1097\chrome-win\chrome.exe
+2025-11-27 17:32:23,847 - ERROR - ╔════════════════════════════════════════════════════════════╗
+2025-11-27 17:32:23,848 - ERROR - ║ Looks like Playwright was just installed or updated.       ║
+2025-11-27 17:32:23,848 - ERROR - ║ Please run the following command to download new browsers: ║
+2025-11-27 17:32:23,848 - ERROR - ║                                                            ║
+2025-11-27 17:32:23,848 - ERROR - ║     playwright install                                     ║
+2025-11-27 17:32:23,848 - ERROR - ║                                                            ║
+2025-11-27 17:32:23,849 - ERROR - ║ <3 Playwright Team                                         ║
+2025-11-27 17:32:23,849 - ERROR - ╚════════════════════════════════════════════════════════════╝
+2025-11-27 17:32:23,849 - ERROR - ================================================================================
+2025-11-27 17:32:23,849 - INFO - 
+================================================================================
+2025-11-27 17:32:23,849 - INFO - PHASE 1 COMPLETE
+2025-11-27 17:32:23,850 - INFO - Bank Statement Result: 0
+2025-11-27 17:32:23,850 - INFO - Playwright Result: 1
+2025-11-27 17:32:23,850 - INFO - ================================================================================
+
+2025-11-27 17:32:23,850 - INFO - ================================================================================
+2025-11-27 17:32:23,850 - INFO - PHASE 2: CRM INTEGRATION
+2025-11-27 17:32:23,850 - INFO - ================================================================================
+2025-11-27 17:32:23,851 - INFO - ================================================================================
+2025-11-27 17:32:23,851 - INFO - STARTING: CRM_report_integrator_with_bank_statements.py
+2025-11-27 17:32:23,851 - INFO - ================================================================================
+2025-11-27 17:32:24,728 - ERROR - ✗ ERROR in CRM_report_integrator_with_bank_statements.py
+2025-11-27 17:32:24,729 - ERROR - Return code: 1
+2025-11-27 17:32:24,729 - ERROR - ================================================================================
+2025-11-27 17:32:24,729 - ERROR - LAST OUTPUT LINES (for debugging):
+2025-11-27 17:32:24,729 - ERROR - ================================================================================
+2025-11-27 17:32:24,729 - ERROR - Traceback (most recent call last):
+2025-11-27 17:32:24,729 - ERROR -   File "C:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\CRM_report_integrator_with_bank_statements.py", line 123, in <module>
+2025-11-27 17:32:24,729 - ERROR -     sales_by_gateway = pd.read_csv("Sales_By_Gateway.csv")
+2025-11-27 17:32:24,729 - ERROR -                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:32:24,730 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1024, in read_csv
+2025-11-27 17:32:24,730 - ERROR -     return _read(filepath_or_buffer, kwds)
+2025-11-27 17:32:24,731 - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:32:24,731 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 618, in _read
+2025-11-27 17:32:24,731 - ERROR -     parser = TextFileReader(filepath_or_buffer, **kwds)
+2025-11-27 17:32:24,731 - ERROR -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:32:24,732 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1618, in __init__
+2025-11-27 17:32:24,732 - ERROR -     self._engine = self._make_engine(f, self.engine)
+2025-11-27 17:32:24,732 - ERROR -                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:32:24,732 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1878, in _make_engine
+2025-11-27 17:32:24,732 - ERROR -     self.handles = get_handle(
+2025-11-27 17:32:24,732 - ERROR -                    ^^^^^^^^^^^
+2025-11-27 17:32:24,732 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+2025-11-27 17:32:24,733 - ERROR -     handle = open(
+2025-11-27 17:32:24,733 - ERROR -              ^^^^^
+2025-11-27 17:32:24,733 - ERROR - FileNotFoundError: [Errno 2] No such file or directory: 'Sales_By_Gateway.csv'
+2025-11-27 17:32:24,733 - ERROR - ================================================================================
+2025-11-27 17:32:24,741 - INFO - 
+================================================================================
+2025-11-27 17:32:24,741 - INFO - EXECUTION SUMMARY
+2025-11-27 17:32:24,742 - INFO - ================================================================================
+2025-11-27 17:32:24,742 - INFO - Total Duration: 12.2s
+2025-11-27 17:32:24,742 - INFO - Bank Statement: ✓ Success
+2025-11-27 17:32:24,742 - INFO - Playwright: ✗ Failed
+2025-11-27 17:32:24,742 - INFO - CRM Integrator: ✗ Failed
+2025-11-27 17:32:24,743 - INFO - ================================================================================
+
+2025-11-27 17:32:24,824 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:32:40,863 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getMe "HTTP/1.1 200 OK"
+2025-11-27 17:32:40,914 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/deleteWebhook "HTTP/1.1 200 OK"
+2025-11-27 17:32:40,915 - INFO - Scheduler started
+2025-11-27 17:32:40,916 - INFO - Application started
+2025-11-27 17:32:46,225 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:32:46,695 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:32:46,785 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_58.xls "HTTP/1.1 200 OK"
+2025-11-27 17:32:47,004 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:32:47,052 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_59.xls "HTTP/1.1 200 OK"
+2025-11-27 17:32:47,122 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:32:47,175 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_60.xls "HTTP/1.1 200 OK"
+2025-11-27 17:32:47,360 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:32:47,411 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_61.xls "HTTP/1.1 200 OK"
+2025-11-27 17:32:49,502 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:32:49,580 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:32:49,581 - INFO - Triggering agent pipeline after bank statements downloaded
+2025-11-27 17:32:49,581 - INFO - 
+================================================================================
+2025-11-27 17:32:49,581 - INFO - SMARTIMPACT DEPREC AGENT SERVICE
+2025-11-27 17:32:49,581 - INFO - Started: 2025-11-27 17:32:49
+2025-11-27 17:32:49,582 - INFO - ================================================================================
+
+2025-11-27 17:32:49,582 - INFO - 
+================================================================================
+2025-11-27 17:32:49,582 - INFO - PHASE 1: PARALLEL EXECUTION
+2025-11-27 17:32:49,582 - INFO - ================================================================================
+2025-11-27 17:32:49,582 - INFO - Waiting for deprec_date_metadata.pkl to appear...
+2025-11-27 17:32:49,582 - INFO - ================================================================================
+2025-11-27 17:32:49,583 - INFO - STARTING: bank_statement_retriever_and_organizer.py
+2025-11-27 17:32:49,583 - INFO - ================================================================================
+2025-11-27 17:32:51,105 - INFO - ✓ Found deprec_date_metadata.pkl after 1.5s
+2025-11-27 17:32:51,105 - INFO - ================================================================================
+2025-11-27 17:32:51,106 - INFO - STARTING: MM_DEPREC_playwright.py
+2025-11-27 17:32:51,106 - INFO - ================================================================================
+2025-11-27 17:32:51,221 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:32:52,305 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:32:53,733 - INFO - ✓ COMPLETED: bank_statement_retriever_and_organizer.py
+2025-11-27 17:32:54,383 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:32:56,279 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:32:59,604 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:33:02,532 - ERROR - ✗ ERROR in MM_DEPREC_playwright.py
+2025-11-27 17:33:02,532 - ERROR - Return code: 1
+2025-11-27 17:33:02,532 - ERROR - ================================================================================
+2025-11-27 17:33:02,532 - ERROR - LAST OUTPUT LINES (for debugging):
+2025-11-27 17:33:02,533 - ERROR - ================================================================================
+2025-11-27 17:33:02,533 - ERROR -     Browser, from_channel(await self._channel.send("launch", params))
+2025-11-27 17:33:02,533 - ERROR -                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:33:02,533 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_connection.py", line 63, in send
+2025-11-27 17:33:02,533 - ERROR -     return await self._connection.wrap_api_call(
+2025-11-27 17:33:02,533 - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:33:02,533 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_connection.py", line 495, in wrap_api_call
+2025-11-27 17:33:02,533 - ERROR -     return await cb()
+2025-11-27 17:33:02,534 - ERROR -            ^^^^^^^^^^
+2025-11-27 17:33:02,534 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\playwright\_impl\_connection.py", line 101, in inner_send
+2025-11-27 17:33:02,534 - ERROR -     result = next(iter(done)).result()
+2025-11-27 17:33:02,534 - ERROR -              ^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:33:02,534 - ERROR - playwright._impl._errors.Error: Executable doesn't exist at C:\Users\mmsou\AppData\Local\ms-playwright\chromium-1097\chrome-win\chrome.exe
+2025-11-27 17:33:02,534 - ERROR - ╔════════════════════════════════════════════════════════════╗
+2025-11-27 17:33:02,534 - ERROR - ║ Looks like Playwright was just installed or updated.       ║
+2025-11-27 17:33:02,534 - ERROR - ║ Please run the following command to download new browsers: ║
+2025-11-27 17:33:02,534 - ERROR - ║                                                            ║
+2025-11-27 17:33:02,534 - ERROR - ║     playwright install                                     ║
+2025-11-27 17:33:02,534 - ERROR - ║                                                            ║
+2025-11-27 17:33:02,534 - ERROR - ║ <3 Playwright Team                                         ║
+2025-11-27 17:33:02,534 - ERROR - ╚════════════════════════════════════════════════════════════╝
+2025-11-27 17:33:02,534 - ERROR - ================================================================================
+2025-11-27 17:33:02,536 - INFO - 
+================================================================================
+2025-11-27 17:33:02,536 - INFO - PHASE 1 COMPLETE
+2025-11-27 17:33:02,536 - INFO - Bank Statement Result: 0
+2025-11-27 17:33:02,536 - INFO - Playwright Result: 1
+2025-11-27 17:33:02,536 - INFO - ================================================================================
+
+2025-11-27 17:33:02,536 - INFO - ================================================================================
+2025-11-27 17:33:02,536 - INFO - PHASE 2: CRM INTEGRATION
+2025-11-27 17:33:02,537 - INFO - ================================================================================
+2025-11-27 17:33:02,537 - INFO - ================================================================================
+2025-11-27 17:33:02,537 - INFO - STARTING: CRM_report_integrator_with_bank_statements.py
+2025-11-27 17:33:02,537 - INFO - ================================================================================
+2025-11-27 17:33:03,352 - ERROR - ✗ ERROR in CRM_report_integrator_with_bank_statements.py
+2025-11-27 17:33:03,352 - ERROR - Return code: 1
+2025-11-27 17:33:03,352 - ERROR - ================================================================================
+2025-11-27 17:33:03,352 - ERROR - LAST OUTPUT LINES (for debugging):
+2025-11-27 17:33:03,352 - ERROR - ================================================================================
+2025-11-27 17:33:03,352 - ERROR - Traceback (most recent call last):
+2025-11-27 17:33:03,352 - ERROR -   File "C:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\CRM_report_integrator_with_bank_statements.py", line 123, in <module>
+2025-11-27 17:33:03,352 - ERROR -     sales_by_gateway = pd.read_csv("Sales_By_Gateway.csv")
+2025-11-27 17:33:03,353 - ERROR -                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:33:03,353 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1024, in read_csv
+2025-11-27 17:33:03,353 - ERROR -     return _read(filepath_or_buffer, kwds)
+2025-11-27 17:33:03,353 - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:33:03,353 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 618, in _read
+2025-11-27 17:33:03,353 - ERROR -     parser = TextFileReader(filepath_or_buffer, **kwds)
+2025-11-27 17:33:03,353 - ERROR -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:33:03,354 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1618, in __init__
+2025-11-27 17:33:03,354 - ERROR -     self._engine = self._make_engine(f, self.engine)
+2025-11-27 17:33:03,354 - ERROR -                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:33:03,354 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1878, in _make_engine
+2025-11-27 17:33:03,354 - ERROR -     self.handles = get_handle(
+2025-11-27 17:33:03,354 - ERROR -                    ^^^^^^^^^^^
+2025-11-27 17:33:03,354 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+2025-11-27 17:33:03,354 - ERROR -     handle = open(
+2025-11-27 17:33:03,356 - ERROR -              ^^^^^
+2025-11-27 17:33:03,356 - ERROR - FileNotFoundError: [Errno 2] No such file or directory: 'Sales_By_Gateway.csv'
+2025-11-27 17:33:03,356 - ERROR - ================================================================================
+2025-11-27 17:33:03,361 - INFO - 
+================================================================================
+2025-11-27 17:33:03,361 - INFO - EXECUTION SUMMARY
+2025-11-27 17:33:03,361 - INFO - ================================================================================
+2025-11-27 17:33:03,361 - INFO - Total Duration: 13.8s
+2025-11-27 17:33:03,361 - INFO - Bank Statement: ✓ Success
+2025-11-27 17:33:03,362 - INFO - Playwright: ✗ Failed
+2025-11-27 17:33:03,362 - INFO - CRM Integrator: ✗ Failed
+2025-11-27 17:33:03,362 - INFO - ================================================================================
+
+2025-11-27 17:33:03,481 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:33:04,540 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:33:04,540 - INFO - Application is stopping. This might take a moment.
+2025-11-27 17:33:04,540 - INFO - Scheduler has been shut down
+2025-11-27 17:33:04,540 - INFO - Application.stop() complete
+2025-11-27 17:35:48,577 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getMe "HTTP/1.1 200 OK"
+2025-11-27 17:35:48,623 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/deleteWebhook "HTTP/1.1 200 OK"
+2025-11-27 17:35:48,625 - INFO - Scheduler started
+2025-11-27 17:35:48,625 - INFO - Application started
+2025-11-27 17:35:53,198 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:35:53,456 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:35:53,545 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_62.xls "HTTP/1.1 200 OK"
+2025-11-27 17:35:53,762 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:35:53,811 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_63.xls "HTTP/1.1 200 OK"
+2025-11-27 17:35:53,883 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:35:53,929 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_64.xls "HTTP/1.1 200 OK"
+2025-11-27 17:35:54,083 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:35:54,137 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_65.xls "HTTP/1.1 200 OK"
+2025-11-27 17:35:56,240 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:35:56,321 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:35:56,322 - INFO - Triggering agent pipeline after bank statements downloaded
+2025-11-27 17:35:56,323 - INFO - 
+================================================================================
+2025-11-27 17:35:56,323 - INFO - SMARTIMPACT DEPREC AGENT SERVICE
+2025-11-27 17:35:56,323 - INFO - Started: 2025-11-27 17:35:56
+2025-11-27 17:35:56,323 - INFO - ================================================================================
+
+2025-11-27 17:35:56,323 - INFO - 
+================================================================================
+2025-11-27 17:35:56,325 - INFO - PHASE 1: PARALLEL EXECUTION
+2025-11-27 17:35:56,325 - INFO - ================================================================================
+2025-11-27 17:35:56,325 - INFO - Waiting for deprec_date_metadata.pkl to appear...
+2025-11-27 17:35:56,325 - INFO - ================================================================================
+2025-11-27 17:35:56,325 - INFO - STARTING: bank_statement_retriever_and_organizer.py
+2025-11-27 17:35:56,326 - INFO - ================================================================================
+2025-11-27 17:35:57,955 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:35:58,355 - INFO - ✓ Found deprec_date_metadata.pkl after 2.0s
+2025-11-27 17:35:58,355 - INFO - ================================================================================
+2025-11-27 17:35:58,356 - INFO - STARTING: MM_DEPREC_playwright.py
+2025-11-27 17:35:58,356 - INFO - ================================================================================
+2025-11-27 17:35:59,030 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:36:01,050 - INFO - ✓ COMPLETED: bank_statement_retriever_and_organizer.py
+2025-11-27 17:36:01,099 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:36:03,259 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:36:06,179 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:36:11,379 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:36:13,333 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:36:23,388 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:36:26,425 - ERROR - ✗ ERROR in MM_DEPREC_playwright.py
+2025-11-27 17:36:26,426 - ERROR - Return code: 3221225786
+2025-11-27 17:36:26,426 - ERROR - ================================================================================
+2025-11-27 17:36:26,426 - ERROR - LAST OUTPUT LINES (for debugging):
+2025-11-27 17:36:26,426 - ERROR - ================================================================================
+2025-11-27 17:36:26,426 - ERROR -     self._run_once()
+2025-11-27 17:36:26,426 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1961, in _run_once
+2025-11-27 17:36:26,426 - ERROR -     event_list = self._selector.select(timeout)
+2025-11-27 17:36:26,426 - ERROR -                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:36:26,426 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 445, in select
+2025-11-27 17:36:26,426 - ERROR -     self._poll(timeout)
+2025-11-27 17:36:26,426 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 774, in _poll
+2025-11-27 17:36:26,426 - ERROR -     status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+2025-11-27 17:36:26,426 - ERROR -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-11-27 17:36:26,426 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 157, in _on_sigint
+2025-11-27 17:36:26,426 - ERROR -     raise KeyboardInterrupt()
+2025-11-27 17:36:26,426 - ERROR - KeyboardInterrupt
+2025-11-27 17:36:26,426 - ERROR - Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x000001AA734DCD60>
+2025-11-27 17:36:26,426 - ERROR - Traceback (most recent call last):
+2025-11-27 17:36:26,426 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_subprocess.py", line 126, in __del__
+2025-11-27 17:36:26,426 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_subprocess.py", line 104, in close
+2025-11-27 17:36:26,426 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 109, in close
+2025-11-27 17:36:26,426 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 799, in call_soon
+2025-11-27 17:36:26,426 - ERROR -   File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 545, in _check_closed
+2025-11-27 17:36:26,426 - ERROR - RuntimeError: Event loop is closed
+2025-11-27 17:36:26,426 - ERROR - ================================================================================
+2025-11-27 17:36:26,442 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-12' coro=<handle_document_logger.<locals>.send_batch_message() done, defined at c:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\chat_logger.py:166> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]>>
+2025-11-27 17:36:26,442 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13' coro=<handle_document_logger.<locals>.send_batch_message.<locals>.update_progress() done, defined at c:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\chat_logger.py:196> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-11-27 17:36:47,657 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getMe "HTTP/1.1 200 OK"
+2025-11-27 17:36:47,705 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/deleteWebhook "HTTP/1.1 200 OK"
+2025-11-27 17:36:47,707 - INFO - Scheduler started
+2025-11-27 17:36:47,708 - INFO - Application started
+2025-11-27 17:36:53,885 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:36:54,263 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:36:54,349 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_66.xls "HTTP/1.1 200 OK"
+2025-11-27 17:36:54,552 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:36:54,603 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_67.xls "HTTP/1.1 200 OK"
+2025-11-27 17:36:54,665 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:36:54,713 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_68.xls "HTTP/1.1 200 OK"
+2025-11-27 17:36:54,875 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:36:54,927 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_69.xls "HTTP/1.1 200 OK"
+2025-11-27 17:36:57,027 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:36:57,097 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:36:57,098 - INFO - Triggering agent pipeline after bank statements downloaded
+2025-11-27 17:36:57,098 - INFO - 
+================================================================================
+2025-11-27 17:36:57,098 - INFO - SMARTIMPACT DEPREC AGENT SERVICE
+2025-11-27 17:36:57,099 - INFO - Started: 2025-11-27 17:36:57
+2025-11-27 17:36:57,099 - INFO - ================================================================================
+
+2025-11-27 17:36:57,099 - INFO - 
+================================================================================
+2025-11-27 17:36:57,099 - INFO - PHASE 1: PARALLEL EXECUTION
+2025-11-27 17:36:57,099 - INFO - ================================================================================
+2025-11-27 17:36:57,099 - INFO - Waiting for deprec_date_metadata.pkl to appear...
+2025-11-27 17:36:57,099 - INFO - ================================================================================
+2025-11-27 17:36:57,101 - INFO - ✓ Found deprec_date_metadata.pkl after 0.0s
+2025-11-27 17:36:57,101 - INFO - STARTING: bank_statement_retriever_and_organizer.py
+2025-11-27 17:36:57,101 - INFO - ================================================================================
+2025-11-27 17:36:57,101 - INFO - ================================================================================
+2025-11-27 17:36:57,102 - INFO - STARTING: MM_DEPREC_playwright.py
+2025-11-27 17:36:57,102 - INFO - ================================================================================
+2025-11-27 17:36:58,691 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:36:59,777 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:37:01,594 - INFO - ✓ COMPLETED: bank_statement_retriever_and_organizer.py
+2025-11-27 17:37:01,900 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:37:03,948 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:37:07,053 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:37:12,234 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:37:14,009 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:37:24,083 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:37:33,301 - INFO - ✓ COMPLETED: MM_DEPREC_playwright.py
+2025-11-27 17:37:33,301 - INFO - 
+================================================================================
+2025-11-27 17:37:33,301 - INFO - PHASE 1 COMPLETE
+2025-11-27 17:37:33,301 - INFO - Bank Statement Result: 0
+2025-11-27 17:37:33,301 - INFO - Playwright Result: 0
+2025-11-27 17:37:33,301 - INFO - ================================================================================
+
+2025-11-27 17:37:33,301 - INFO - ================================================================================
+2025-11-27 17:37:33,301 - INFO - PHASE 2: CRM INTEGRATION
+2025-11-27 17:37:33,301 - INFO - ================================================================================
+2025-11-27 17:37:33,301 - INFO - ================================================================================
+2025-11-27 17:37:33,301 - INFO - STARTING: CRM_report_integrator_with_bank_statements.py
+2025-11-27 17:37:33,301 - INFO - ================================================================================
+2025-11-27 17:37:35,934 - INFO - ✓ COMPLETED: CRM_report_integrator_with_bank_statements.py
+2025-11-27 17:37:35,941 - INFO - 
+================================================================================
+2025-11-27 17:37:35,941 - INFO - EXECUTION SUMMARY
+2025-11-27 17:37:35,941 - INFO - ================================================================================
+2025-11-27 17:37:35,941 - INFO - Total Duration: 38.8s
+2025-11-27 17:37:35,941 - INFO - Bank Statement: ✓ Success
+2025-11-27 17:37:35,941 - INFO - Playwright: ✓ Success
+2025-11-27 17:37:35,941 - INFO - CRM Integrator: ✓ Success
+2025-11-27 17:37:35,942 - INFO - ================================================================================
+
+2025-11-27 17:37:35,943 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:37:41,056 - ERROR - Error in send_batch_message: Timed out
+2025-11-27 17:37:41,067 - ERROR - Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\chat_logger.py", line 259, in send_batch_message
+    await retrieving_msg.edit_text("✅ Vrio report retrieved with success")
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_message.py", line 2536, in edit_text
+    return await self.get_bot().edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 1473, in edit_message_text
+    return await super().edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 3288, in edit_message_text
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 522, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 703, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_httpxrequest.py", line 285, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+
+2025-11-27 17:37:45,992 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:37:56,051 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:38:06,108 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:38:16,161 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:38:26,223 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:38:36,277 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:38:46,328 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:38:56,381 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:39:06,431 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:39:16,481 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:39:26,527 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:39:36,594 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:39:46,645 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:39:56,702 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:40:06,745 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:40:16,814 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:40:26,864 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:40:36,912 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:40:46,962 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:40:57,024 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:41:07,079 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:41:17,132 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:41:27,182 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:41:37,252 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:41:47,302 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:41:57,352 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:42:07,422 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:42:17,476 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:42:27,532 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:42:37,582 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:42:47,634 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:42:57,692 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:43:07,752 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:43:17,802 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:43:27,852 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:43:34,560 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:43:34,561 - INFO - Application is stopping. This might take a moment.
+2025-11-27 17:43:34,561 - INFO - Scheduler has been shut down
+2025-11-27 17:43:34,561 - INFO - Application.stop() complete
+2025-11-27 17:59:20,010 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getMe "HTTP/1.1 200 OK"
+2025-11-27 17:59:20,059 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/deleteWebhook "HTTP/1.1 200 OK"
+2025-11-27 17:59:20,061 - INFO - Scheduler started
+2025-11-27 17:59:20,062 - INFO - Application started
+2025-11-27 17:59:30,201 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:59:31,614 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:59:32,610 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:59:32,705 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_70.xls "HTTP/1.1 200 OK"
+2025-11-27 17:59:32,948 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:59:33,002 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_71.xls "HTTP/1.1 200 OK"
+2025-11-27 17:59:33,070 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:59:33,121 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_72.xls "HTTP/1.1 200 OK"
+2025-11-27 17:59:33,334 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 17:59:33,412 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_73.xls "HTTP/1.1 200 OK"
+2025-11-27 17:59:35,509 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:59:35,600 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 17:59:35,602 - INFO - Triggering agent pipeline after bank statements downloaded
+2025-11-27 17:59:35,602 - INFO - 
+================================================================================
+2025-11-27 17:59:35,602 - INFO - SMARTIMPACT DEPREC AGENT SERVICE
+2025-11-27 17:59:35,602 - INFO - Started: 2025-11-27 17:59:35
+2025-11-27 17:59:35,602 - INFO - ================================================================================
+
+2025-11-27 17:59:35,602 - INFO - 
+================================================================================
+2025-11-27 17:59:35,602 - INFO - PHASE 1: PARALLEL EXECUTION
+2025-11-27 17:59:35,602 - INFO - ================================================================================
+2025-11-27 17:59:35,602 - INFO - Waiting for deprec_date_metadata.pkl to appear...
+2025-11-27 17:59:35,602 - INFO - ================================================================================
+2025-11-27 17:59:35,602 - INFO - STARTING: bank_statement_retriever_and_organizer.py
+2025-11-27 17:59:35,602 - INFO - ✓ Found deprec_date_metadata.pkl after 0.0s
+2025-11-27 17:59:35,604 - INFO - ================================================================================
+2025-11-27 17:59:35,604 - INFO - ================================================================================
+2025-11-27 17:59:35,604 - INFO - STARTING: MM_DEPREC_playwright.py
+2025-11-27 17:59:35,604 - INFO - ================================================================================
+2025-11-27 17:59:37,172 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:59:38,323 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:59:40,407 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:59:41,679 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 17:59:41,737 - INFO - ✓ COMPLETED: bank_statement_retriever_and_organizer.py
+2025-11-27 17:59:45,482 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:59:50,664 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 17:59:51,726 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:00:01,777 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:00:11,827 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:00:13,118 - INFO - ✓ COMPLETED: MM_DEPREC_playwright.py
+2025-11-27 18:00:13,119 - INFO - 
+================================================================================
+2025-11-27 18:00:13,120 - INFO - PHASE 1 COMPLETE
+2025-11-27 18:00:13,120 - INFO - Bank Statement Result: 0
+2025-11-27 18:00:13,120 - INFO - Playwright Result: 0
+2025-11-27 18:00:13,120 - INFO - ================================================================================
+
+2025-11-27 18:00:13,120 - INFO - ================================================================================
+2025-11-27 18:00:13,120 - INFO - PHASE 2: CRM INTEGRATION
+2025-11-27 18:00:13,120 - INFO - ================================================================================
+2025-11-27 18:00:13,120 - INFO - ================================================================================
+2025-11-27 18:00:13,120 - INFO - STARTING: CRM_report_integrator_with_bank_statements.py
+2025-11-27 18:00:13,122 - INFO - ================================================================================
+2025-11-27 18:00:15,663 - INFO - ✓ COMPLETED: CRM_report_integrator_with_bank_statements.py
+2025-11-27 18:00:15,670 - INFO - 
+================================================================================
+2025-11-27 18:00:15,670 - INFO - EXECUTION SUMMARY
+2025-11-27 18:00:15,670 - INFO - ================================================================================
+2025-11-27 18:00:15,670 - INFO - Total Duration: 40.1s
+2025-11-27 18:00:15,671 - INFO - Bank Statement: ✓ Success
+2025-11-27 18:00:15,671 - INFO - Playwright: ✓ Success
+2025-11-27 18:00:15,672 - INFO - CRM Integrator: ✓ Success
+2025-11-27 18:00:15,672 - INFO - ================================================================================
+
+2025-11-27 18:00:20,768 - ERROR - Error in send_batch_message: Timed out
+2025-11-27 18:00:20,777 - ERROR - Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\chat_logger.py", line 259, in send_batch_message
+    await retrieving_msg.edit_text("✅ Vrio report retrieved with success")
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_message.py", line 2536, in edit_text
+    return await self.get_bot().edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 1473, in edit_message_text
+    return await super().edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 3288, in edit_message_text
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 522, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 703, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_httpxrequest.py", line 285, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+
+2025-11-27 18:00:21,877 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:00:31,938 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:00:41,985 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:00:52,035 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:01:02,085 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:01:12,138 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:01:22,187 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:02:05,103 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getMe "HTTP/1.1 200 OK"
+2025-11-27 18:02:05,155 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/deleteWebhook "HTTP/1.1 200 OK"
+2025-11-27 18:02:05,157 - INFO - Scheduler started
+2025-11-27 18:02:05,157 - INFO - Application started
+2025-11-27 18:02:10,327 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:02:10,676 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 18:02:10,774 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_74.xls "HTTP/1.1 200 OK"
+2025-11-27 18:02:10,963 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 18:02:11,013 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_75.xls "HTTP/1.1 200 OK"
+2025-11-27 18:02:11,075 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 18:02:11,124 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_76.xls "HTTP/1.1 200 OK"
+2025-11-27 18:02:11,290 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getFile "HTTP/1.1 200 OK"
+2025-11-27 18:02:11,341 - INFO - HTTP Request: GET https://api.telegram.org/file/bot8303001059%3AAAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/documents/file_77.xls "HTTP/1.1 200 OK"
+2025-11-27 18:02:13,427 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 18:02:13,517 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/sendMessage "HTTP/1.1 200 OK"
+2025-11-27 18:02:13,518 - INFO - Triggering agent pipeline after bank statements downloaded
+2025-11-27 18:02:13,519 - INFO - 
+================================================================================
+2025-11-27 18:02:13,519 - INFO - SMARTIMPACT DEPREC AGENT SERVICE
+2025-11-27 18:02:13,519 - INFO - Started: 2025-11-27 18:02:13
+2025-11-27 18:02:13,519 - INFO - ================================================================================
+
+2025-11-27 18:02:13,520 - INFO - 
+================================================================================
+2025-11-27 18:02:13,520 - INFO - PHASE 1: PARALLEL EXECUTION
+2025-11-27 18:02:13,520 - INFO - ================================================================================
+2025-11-27 18:02:13,521 - INFO - Waiting for deprec_date_metadata.pkl to appear...
+2025-11-27 18:02:13,521 - INFO - ================================================================================
+2025-11-27 18:02:13,521 - INFO - STARTING: bank_statement_retriever_and_organizer.py
+2025-11-27 18:02:13,521 - INFO - ================================================================================
+2025-11-27 18:02:15,069 - INFO - ✓ Found deprec_date_metadata.pkl after 1.5s
+2025-11-27 18:02:15,071 - INFO - ================================================================================
+2025-11-27 18:02:15,071 - INFO - STARTING: MM_DEPREC_playwright.py
+2025-11-27 18:02:15,071 - INFO - ================================================================================
+2025-11-27 18:02:15,099 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 18:02:16,178 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 18:02:17,894 - INFO - ✓ COMPLETED: bank_statement_retriever_and_organizer.py
+2025-11-27 18:02:18,265 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 18:02:20,378 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:02:23,446 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 18:02:28,807 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/editMessageText "HTTP/1.1 200 OK"
+2025-11-27 18:02:30,432 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:02:40,478 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:02:50,525 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:02:51,702 - INFO - ✓ COMPLETED: MM_DEPREC_playwright.py
+2025-11-27 18:02:51,703 - INFO - 
+================================================================================
+2025-11-27 18:02:51,703 - INFO - PHASE 1 COMPLETE
+2025-11-27 18:02:51,704 - INFO - Bank Statement Result: 0
+2025-11-27 18:02:51,704 - INFO - Playwright Result: 0
+2025-11-27 18:02:51,704 - INFO - ================================================================================
+
+2025-11-27 18:02:51,704 - INFO - ================================================================================
+2025-11-27 18:02:51,705 - INFO - PHASE 2: CRM INTEGRATION
+2025-11-27 18:02:51,705 - INFO - ================================================================================
+2025-11-27 18:02:51,705 - INFO - ================================================================================
+2025-11-27 18:02:51,705 - INFO - STARTING: CRM_report_integrator_with_bank_statements.py
+2025-11-27 18:02:51,705 - INFO - ================================================================================
+2025-11-27 18:02:54,768 - INFO - ✓ COMPLETED: CRM_report_integrator_with_bank_statements.py
+2025-11-27 18:02:54,782 - INFO - 
+================================================================================
+2025-11-27 18:02:54,782 - INFO - EXECUTION SUMMARY
+2025-11-27 18:02:54,782 - INFO - ================================================================================
+2025-11-27 18:02:54,782 - INFO - Total Duration: 41.3s
+2025-11-27 18:02:54,782 - INFO - Bank Statement: ✓ Success
+2025-11-27 18:02:54,782 - INFO - Playwright: ✓ Success
+2025-11-27 18:02:54,782 - INFO - CRM Integrator: ✓ Success
+2025-11-27 18:02:54,782 - INFO - ================================================================================
+
+2025-11-27 18:02:59,888 - ERROR - Error in send_batch_message: Timed out
+2025-11-27 18:02:59,895 - ERROR - Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\mmsou\Documents\Valerius Labs\Clients\MM\MM test\chat_logger.py", line 259, in send_batch_message
+    await retrieving_msg.edit_text("✅ Vrio report retrieved with success")
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_message.py", line 2536, in edit_text
+    return await self.get_bot().edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 1473, in edit_message_text
+    return await super().edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 3288, in edit_message_text
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 522, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 703, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mmsou\AppData\Local\Programs\Python\Python312\Lib\site-packages\telegram\request\_httpxrequest.py", line 285, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+
+2025-11-27 18:03:00,589 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:03:10,637 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:03:20,682 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:03:30,732 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:03:40,780 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:03:50,824 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:04:00,872 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:04:10,922 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:04:20,973 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:04:31,024 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:04:41,062 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:04:51,112 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:05:01,172 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:05:11,207 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:05:21,267 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:05:31,307 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:05:41,359 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:05:51,408 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:06:01,459 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:06:11,509 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:06:21,559 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:06:31,608 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:06:41,658 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:06:51,712 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:07:01,759 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:07:11,876 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"
+2025-11-27 18:07:21,926 - INFO - HTTP Request: POST https://api.telegram.org/bot8303001059:AAHGoH5xFRrJ1SRPTpixDh93P1vA3JnFi8k/getUpdates "HTTP/1.1 200 OK"

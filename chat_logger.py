@@ -114,7 +114,12 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
         is_bank_statement = 'bofa' in cleaned_name or 'boa' in cleaned_name or 'chase' in cleaned_name
 
         if is_bank_statement:
-            print("✅ Bank Statement verified")
+            print(f"✅ Bank Statement verified: {file_name}")
+            print(f"   Cleaned name: {cleaned_name}")
+            if 'bofa' in cleaned_name or 'boa' in cleaned_name:
+                print(f"   Matched: BofA")
+            elif 'chase' in cleaned_name:
+                print(f"   Matched: Chase")
 
             # Save directly in the same directory as this script (no subdirectory)
             script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -135,7 +140,8 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
                 context.chat_data['bank_statements_batch'][chat_id] = {
                     'count': 0,
                     'last_time': None,
-                    'task': None
+                    'task': None,
+                    'files': []  # Track filenames
                 }
 
             now = datetime.now()
@@ -144,8 +150,10 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
             # If more than 5 seconds since last file, reset count
             if batch_state['last_time'] is None or (now - batch_state['last_time']).total_seconds() > 5:
                 batch_state['count'] = 0
+                batch_state['files'] = []
 
             batch_state['count'] += 1
+            batch_state['files'].append(file_name)
             batch_state['last_time'] = now
 
             # Cancel previous task if exists
@@ -159,11 +167,22 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
                 try:
                     await asyncio.sleep(2)
                     count = batch_state['count']
+                    files_list = batch_state.get('files', [])
+                    
+                    # Print verified files to terminal/logs
+                    print(f"\n{'='*60}")
+                    print(f"✅ VERIFIED BANK STATEMENTS ({count} total):")
+                    print(f"{'='*60}")
+                    for i, fname in enumerate(files_list, 1):
+                        print(f"  {i}. {fname}")
+                    print(f"{'='*60}\n")
+                    
                     if count == 1:
                         await update.message.reply_text("✅ Bank Statement verified")
                     else:
                         await update.message.reply_text(f"✅ {count} Bank Statements verified")
                     batch_state['count'] = 0
+                    batch_state['files'] = []
                     batch_state['task'] = None
 
                     # Delete the retrieving message, then send new message after CRM report fetched
@@ -250,7 +269,9 @@ async def handle_document_logger(update: Update, context: ContextTypes.DEFAULT_T
 
             batch_state['task'] = asyncio.create_task(send_batch_message())
         else:
-            print(f"⚠️ File '{file_name}' is not a bank statement (no 'bofa', 'boa', or 'chase' in name)")
+            print(f"⚠️ File '{file_name}' is NOT a bank statement")
+            print(f"   Cleaned name: {cleaned_name}")
+            print(f"   Reason: No 'bofa', 'boa', or 'chase' found in filename")
 
     except Exception as e:
         import traceback
